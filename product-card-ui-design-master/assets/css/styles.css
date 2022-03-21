@@ -1,0 +1,208 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+/*===== VARIABLES CSS =====*/
+:root {
+  /*===== Colores =====*/
+  --first-color: #50eee6d8;
+  --white-color: #E9EAEC;
+  --dark-color: #1f111fd0;
+  --dark-color-lighten: #F2F5FF;
+  /*===== Fuente y tipografia =====*/
+  --body-font: 'Poppins', sans-serif;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: .875rem;
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+/*                                                               */
+
+/* Navegação */
+
+nav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #010103af;
+}
+
+nav > img {
+     display: flex;
+
+}
+
+nav ul{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	list-style: none;
+	padding: 0;
+	width: 100%;
+
+}
+
+
+nav ul li {
+	text-align: center;
+	width: 100%;
+}
+
+nav ul li img {
+	display: inline-block;
+	padding: 10px 0;
+	width: 50%; /* Para mudar o tamanho do Emoji*/
+} /* Mexer aqui*/
+
+/*                                                               */
+
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-image: url("../img/FundoRoxo.png");
+  background-size: cover;
+}
+
+h1, p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*===== CARD =====*/
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-color-lighten);
+  background-image: url("../img/FundoRoxo.png");
+  background-size: cover;
+}
+
+
+.card {
+  width: 320px;
+  height: 400px;
+  margin: 10px; /* Para separar os Cards*/
+  background-color: var(--dark-color);
+  border-radius: 1rem;
+  color: var(--white-color);
+  overflow-y: hidden;
+}
+
+.card__img {
+  position: absolute;
+  width: 260px;
+  filter: drop-shadow(5px 10px 15px rgba(253, 255, 146, 0.425)); /*Dar brilho na imagem. */
+}
+
+.card__data {
+  transform: translateY(13.2rem);
+  text-align: center;
+  font-family:Staatliches, sans-serif;
+}
+
+.card__title {
+  font-size: var(--h1-font-size);
+  color:black;
+  margin-bottom: .5rem;
+  text-align: center;
+}
+
+.card__preci {
+  display: inline-block;
+  color: #e3ee50d8;
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  text-align: center;
+}
+
+.card__description {
+  font-size: var(--small-font-size);
+  text-align: center;
+  margin-bottom: 1.25rem;
+  opacity: 0;
+  margin: 0 auto;
+}
+
+
+.card__button {
+  display: block;
+  width: max-content;
+  padding: 1.125rem 2rem;
+  background-color: var(--first-color);
+  color: black;
+  border-radius: .5rem;
+  font-weight: 600;
+  transition: .2s;
+  opacity: 0;
+  margin: 0 auto;
+}
+
+
+.card__img, 
+.card__data, 
+.card__title, 
+.card__preci, 
+.card__description {
+  transition: .5s;
+}
+
+/* Hover card effect */
+.card:hover .card__img {
+  transform: translate(-1.5rem, -9.5rem) rotate(-20deg);
+}
+
+.card:hover .card__data {
+  transform: translateY(6.0rem); /* Até quanto os objetos dentro do card irão subir quando o cursor estiver sobre o card.*/
+  text-shadow: 5px 10px 15px rgba(165, 40, 144, 0.425);
+}
+
+.card:hover .card__title {
+  transform: translateX(-0.5rem); /* Para quanto o título do card vai para o lado esquerdo quando o cursor estiver sobre ele.*/
+  margin-bottom: 0;
+}
+
+.card:hover .card__preci { /* Para quanto o número de qual opção do card vai para o lado esquerdo quando o cursor estiver sobre ele.*/
+  transform: translateX(-6.8rem);
+}
+.card__button:hover{
+  box-shadow: 5px 10px 15px rgba(66, 241, 247, 0.425); /* Brilho/ Neon do botão quando o cursor estiver sobre ele.*/
+}
+
+.card:hover .card__description, 
+.card:hover .card__button {
+  transition-delay: .2s;
+  opacity: 1;
+}
+
+
+/*   NAVEGAÇÃO   */
+@media screen and (min-width:768px){
+
+  /*nav*/
+
+  nav{
+    flex-direction: row;
+    justify-content: space-around;
+
+  }
+
+  nav ul{
+    flex-direction: row;
+    width: 70%;
+  }
+}  

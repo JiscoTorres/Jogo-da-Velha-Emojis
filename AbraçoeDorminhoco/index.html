@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+		<link rel="shortcut icon" href="icojogoDavelha-removebg-preview (1).ico" type="image/x-icon"> 
+
+    <link rel="stylesheet" href="./style.css" />
+    <title>Jogo da Velha</title>
+  </head>
+<body>
+  <nav>
+    <a href="file:///C:/Users/torre/Downloads/product-card-ui-design-master/product-card-ui-design-master/index.html"> <img src="../JOGO DA VELHA/Jogo-removebg-preview.png" alt="Logo"></a><!-- Para adicionar o 
+    link na foto de logo. -->
+    <ul>
+      <li><img src="emojiMascarado.gif" id="mascarado" onclick=""></li>
+      <li><img src="emojiDescolado.gif" id="descolado" onclick=""></li>
+      <li><img src="emojiAmoroso.gif" id="amoroso" onclick=""></li>
+      <li><img src="emojiImpaciente.gif" id="impaciente" onclick=""></li>
+      <li><img src="emojiDorminhoco.gif" id="durminhoco" onclick=""></li>
+      <li><img src="emojiConvidativo.gif" id="convidativo" onclick=""></li>
+      <li><img src="emojiSereno.gif" id="Sereno" onclick=""></li>
+      <li><img src="emojiCalado.gif" id="Calado" onclick=""></li>
+      <li><img src="emoji-susto.gif" id="susto" onclick=""></li>
+      <li><img src="emojiRisonho.gif" id="risonho" onclick=""></li>
+    </ul>
+  </nav>
+<br><br><br><br><br><br><br>
+<script>
+   function play2() {
+      var audio = document.getElementById("audioCell");
+      audio.play();
+      audio.currentTime = 0 /* Serve para o som não demorar para se repetir*/
+    }
+</script>
+   <div class="board" data-board> 
+
+   <div class="cell" onclick="play2()" data-cell></div> 
+   <div class="cell" onclick="play2()" data-cell></div> 
+   <div class="cell" onclick="play2()" data-cell></div>
+   <div class="cell" onclick="play2()" data-cell></div>
+   <div class="cell" onclick="play2()" data-cell></div>
+   <div class="cell" onclick="play2()" data-cell></div>
+   <div class="cell" onclick="play2()" data-cell></div>
+   <div class="cell" onclick="play2()" data-cell></div>
+   <div class="cell" onclick="play2()" data-cell></div> 
+   </div>
+   <audio id="audioCell" src="../JogoDaVelhaTic/0000171.mp3"></audio>
+
+   <div class="winning-message" data-winning-message><!-- A mensagem que aparece na tela indicando o ganhador. -->
+    <!-- 'data-winning-message' serve para quando o jogo estiver acontecendo, não rodar a mensagem de vencedor. -->
+    <p class="winning-message-text" data-winning-message-text>X Venceu!</p><!-- Inserir paragrafo com texto, o qual indica quem ganhou. -->
+    <button class="winning-message-button" data-restart-button><!-- Insere botão com texto dentro, o qual será o botão para iniciar. -->
+      Reiniciar
+    </button>
+  </div>
+  <br><br><br><br> <br><br>
+
+  <script>
+    function play() {
+      var audio = document.getElementById("audio");
+      audio.play();
+      audio.currentTime = 0
+    }
+  </script>
+
+  <input type="button" value="Reiniciar" id="reiniciar" onclick="play()">
+  <audio id="audio" src="../JogoDaVelhaTic/0000171.mp3"></audio>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+<script src="./script.js"></script>
+</body>
+</html>

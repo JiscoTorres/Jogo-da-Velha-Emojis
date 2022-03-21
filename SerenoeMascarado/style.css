@@ -1,0 +1,260 @@
+*{
+ box-sizing: border-box;  /* Serve para o margin e padding não influenciarem na largura dos elementos. */
+ margin: 0; /*  "margin: 0" para tirar o Margin de todos os elementos. */
+ padding: 0; /* "padding: 0" para tirar o padding de todos os elementos. */
+
+} /*  Esse "*" representa todos os elementos serão afetados pelas definições de estilo ali colocadas. */
+
+body{
+    background-image: url('./back.png');
+    background-size: cover;
+    background-position: 0%; /* Para o background ficar corretamente posicionado na página. */
+}
+
+
+/* Navegação */
+
+nav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #010103af;
+}
+
+nav > img {
+     display: flex;
+
+}
+
+nav ul{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	list-style: none;
+	padding: 0;
+	width: 100%;
+
+}
+
+
+nav ul li {
+	text-align: center;
+	width: 100%;
+}
+
+nav ul li img {
+	display: inline-block;
+	padding: 10px 0;
+	width: 50%; /* Para mudar o tamanho do Emoji*/
+} /* Mexer aqui*/
+
+
+
+
+
+
+.board{
+display: grid;  /* Torna o elemento um grid container. */
+width: 100%;
+height: 100%;
+display: grid; 
+justify-content: center; /* Centraliza todo o conteúdo no centro. */
+align-content: center; /* Centraliza todo o conteúdo no centro. */
+justify-items: center; /* Centraliza o conteúdo das células no centro, no caso, "X" e "O". */
+align-items: center; /* Centraliza o conteúdo das células no centro verticalmente, no caso, "X" e "O". */
+grid-template-columns: repeat(3, auto); /*Cria 3 colunas, e auto seria a largura. auto indicará as colunas irão ocupar a lagura que o conteúdo precisar. */
+}
+
+
+
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after,
+.board.x .cell:not(.x):not(.circle):hover::before {
+  background: rgba(255, 255, 255, 0.3) !important; /*Para a mensagem de Aviso importante*/
+}
+
+
+
+
+
+.cell{ 
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Isso serve para a posição das pernas do "X". Ao aplicarmos essa propriedade em um elemento, ele não muda de posição, pois já vai estar posicionado em sua posição de referência. */
+    cursor: url('167-1679767_download-up-pointing.cur'), pointer;
+    box-shadow: 0 18px 70px -12px rgba(247, 252, 251, 0.473);
+  }
+
+
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
+} /* Serve para quando passar o cursor por cima de uma célula já selecionada por X ou por O, o cursor mudar para uma StopSight*/
+
+
+
+
+
+
+
+
+/*    TIRAR AS BORDAS EXTERNAS DOS QUADRADOS   */
+.cell:nth-child(1), /* Serve para indicar qual quadrado irá mexer, nesse caso no primeiro. */
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none; /* Serve para tirar a borda de cima dos três primeiros quadrados. */
+}
+
+.cell:nth-child(1), /* Serve para indicar qual quadrado irá mexer, nesse caso no primeiro. */
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none; /* Serve para tirar a borda da esquerda dos quadrados localizados na esquerda. */
+}
+
+.cell:nth-child(3), /* Serve para indicar qual quadrado irá mexer, nesse caso no terceiro. */
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-right: none; /* Serve para tirar a borda da direita dos quadrados localizados na direita. */
+}
+
+.cell:nth-child(7), /* Serve para indicar qual quadrado irá mexer, nesse caso no terceiro. */
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none; /* Serve para tirar a borda da baixo dos três últimos quadrados. */
+}
+
+
+
+
+
+/*     X      */ 
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.x .cell:not(.x):not(.circle):hover::before{ /* Servem para colocar um conteúdo tanto antes da div "x" quanto depois dela. */
+content: url("../SerenoeMascarado/SerenoCelula.png");
+height: calc(100px * 0.9); /* 100px é o tamanho da célula, logo, definimos aqui que a altura será 15 vezes o tamanho da célula. */
+width: calc(100px * 0.9); /* 100px é o tamanho da célula, logo, definimos aqui que a largura a será 90% o tamanho da célula. */
+position: absolute;/* quando o elemento com essa propriedade possui um elemento pai de valor diferente de static. Neste caso, ele terá este elemento pai como referência para ser posicionado. T*/
+}
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before { /*.board.x .cell... Serve para meio que criar o X. Ao passar por cima da célula.*/
+  content: url("../SerenoeMascarado/SerenoCelula.png");
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after { /* Criar o X. Ao passar por cima da célula. */
+content: url("../SerenoeMascarado/SerenoCelula.png");
+}
+
+
+
+
+
+/* Circle */
+.cell.circle::before,
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  content: url('../SerenoeMascarado/MascaradoCelula.png');
+  height: calc(100px * 0.9);
+  width:calc(100px * 0.9);
+  position: absolute;
+
+}
+
+
+
+
+
+
+/*   MENSAGEM DE VITÓRIA    */
+.winning-message{ /* Div que tem a mensagem de vencedor e o botão de reiniciar. */
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    flex-direction: column;
+    font-family: Staatliches, sans-serif;
+  }
+  
+  .winning-message-button {
+    font-size: 2.5rem;
+    background-color: rgb(227, 85, 255);
+    padding: 10px 15px;
+    cursor: url('167-1679767_download-up-pointing.cur'), pointer;
+    border-radius: 5px;
+    border: none;
+    margin-top: 16px;
+    color: white;
+    font-family: Staatliches, sans-serif;
+  }
+  
+  .winning-message-button:hover {
+    color: rgb(227, 85, 255);
+    background-color: white;
+  }
+  
+  .winning-message-text {
+    color: white;
+    font-size: 5rem;
+  }
+  
+  .show-winning-message {
+    display: flex;
+  }
+
+
+  /* BOTÃO DE REINICIAR (FIXO) */
+  #reiniciar {
+    display: block;
+    margin-top: 2%;
+    margin-bottom: 50%;
+    width: 12vw;
+    height:6vw;
+    font-size: 1.3em;
+    font-family: Staatliches, sans-serif;
+    color: rgb(255, 255, 255);
+    border-radius: 25px;
+    border: none;
+    background: #c833e6ad;
+    cursor: url('167-1679767_download-up-pointing.cur'), pointer;
+    border-radius: 30px 10px;
+    text-align: center;
+    margin: 0 auto; /* Centraliza o botão no meio da página. */
+  }
+  
+    #reiniciar:hover {
+    background-color: #24f3fa; 
+    color: rgb(20, 18, 18);
+    box-shadow: 0 18px 70px -12px rgba(12, 242, 223, 0.473);
+    }
+  
+
+/*   NAVEGAÇÃO   */
+  @media screen and (min-width:768px){
+
+    /*nav*/
+  
+    nav{
+      flex-direction: row;
+      justify-content: space-around;
+  
+    }
+  
+    nav ul{
+      flex-direction: row;
+      width: 70%;
+    }
+  }  
