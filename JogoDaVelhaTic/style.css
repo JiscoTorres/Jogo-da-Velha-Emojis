@@ -6,7 +6,7 @@
 } /*  Esse "*" representa todos os elementos serão afetados pelas definições de estilo ali colocadas. */
 
 body{
-    background-image: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Fi0.wp.com%2Fgizmodo.uol.com.br%2Fwp-content%2Fblogs.dir%2F8%2Ffiles%2F2021%2F02%2Fnyan-cat-1.gif%3Ffit%3D706%252C610%26ssl%3D1&imgrefurl=https%3A%2F%2Fgizmodo.uol.com.br%2Fgif-remasterizado-3-milhoes-leilao-criptoarte%2F&tbnid=oS7jd3BnCnk5RM&vet=12ahUKEwiF-OOxtNj2AhXoBbkGHc5wAbgQMygCegUIARCOAg..i&docid=En1gaue2EC-EjM&w=706&h=610&q=gif&client=opera-gx&ved=2ahUKEwiF-OOxtNj2AhXoBbkGHc5wAbgQMygCegUIARCOAg');
+    background-image: url('./back.png');
     background-size: cover;
     background-position: 0%; /* Para o background ficar corretamente posicionado na página. */
 }
