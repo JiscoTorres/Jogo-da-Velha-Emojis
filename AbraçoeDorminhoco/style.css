@@ -10,10 +10,7 @@ body{
     background-size: cover;
     background-position: 0%; /* Para o background ficar corretamente posicionado na página. */
 }
-
-
 /* Navegação */
-
 nav {
 	display: flex;
 	flex-direction: column;
